@@ -193,8 +193,8 @@ nav.desktop{display:none;align-items:center;gap:2rem}
 .card-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
 .card-title{font-size:.95rem;font-weight:600;color:#fff;line-height:1.3}
 .card-year{font-family:'Bebas Neue',sans-serif;color:var(--laranja-lt);font-size:.95rem;flex-shrink:0}
-.card-location{color:rgba(255,255,255,.38);font-size:.75rem;margin-top:.25rem}
-.card-location i{color:var(--laranja);font-size:.65rem;margin-right:.2rem}
+.card-location{color:rgba(255,255,255,.72);font-size:.75rem;margin-top:.25rem}
+.card-location i{color:var(--laranja-lt);font-size:.65rem;margin-right:.2rem}
 .card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:.9rem;padding-top:.9rem;border-top:1px solid rgba(255,255,255,.07)}
 .card-dim-label{font-size:.62rem;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.14em}
 .card-dim-value{font-size:.82rem;font-weight:600;color:var(--azul)}
@@ -214,7 +214,7 @@ nav.desktop{display:none;align-items:center;gap:2rem}
 .sust-content > p{color:rgba(255,255,255,.48);line-height:1.8;margin-top:1.4rem;font-size:.95rem}
 .pillars{display:flex;flex-direction:column;gap:1.75rem;margin-top:2.5rem}
 .pillar{display:flex;align-items:flex-start;gap:1.1rem}
-.pillar-icon{width:42px;height:42px;border-radius:50%;flex-shrink:0;background:rgba(0,137,194,.2);display:flex;align-items:center;justify-content:center;color:var(--azul)}
+.pillar-icon{width:42px;height:42px;border-radius:50%;flex-shrink:0;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:var(--laranja-lt)}
 .pillar h4{color:#fff;font-size:.9rem;font-weight:600;margin-bottom:.3rem}
 .pillar p{color:rgba(255,255,255,.42);font-size:.8rem;line-height:1.7}
 .sust-img{position:relative}
@@ -295,7 +295,7 @@ textarea.contact-input{resize:none}
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
 .info-card{display:block;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1.1rem;color:inherit;text-decoration:none;transition:background .3s}
 .info-card:hover{background:rgba(255,255,255,.07)}
-.info-card-icon{width:36px;height:36px;border-radius:8px;background:rgba(14,165,233,.25);display:flex;align-items:center;justify-content:center;color:var(--azul);font-size:.85rem;margin-bottom:.7rem}
+.info-card-icon{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:var(--laranja-lt);font-size:.85rem;margin-bottom:.7rem}
 .info-card-label{font-size:.62rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.12em}
 .info-card-value{font-size:.82rem;color:#fff;margin-top:.2rem;word-break:break-all}
 .map-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.07);margin-top:.9rem}
@@ -498,8 +498,8 @@ footer .bottom p{font-size:.75rem}
       <div><p class="modal-desc-label">Descrição do Produto</p><p id="modalDescription"></p></div>
       <div class="modal-sheet">
         <p class="modal-sheet-title">Detalhes do Produto</p>
-        <div class="sheet-item"><span class="sheet-key">Disponibilidade</span><span id="modalLocation" class="sheet-val"></span></div>
-        <div class="sheet-item"><span class="sheet-key">Formato</span><span id="modalYear" class="sheet-val"></span></div>
+        <div class="sheet-item"><span class="sheet-key">Disponibilidade</span><span id="modalQuantidade" class="sheet-val"></span></div>
+        <div class="sheet-item"><span class="sheet-key">Preço</span><span id="modalPreco" class="sheet-val"></span></div>
         <div class="sheet-item"><span class="sheet-key">Categoria</span><span id="modalCategory" class="sheet-val green"></span></div>
       </div>
     </div>
@@ -564,16 +564,18 @@ const DEF_NEWS=[
 ];
 
 const DEF_PROJECTS=[
- {id:'p1',titulo:'Água Purificada',categoria:'agua',local:'Entrega ao domicílio',ano:'Disponível',desc:'Água 100% purificada para o seu dia a dia.',img:'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1200&q=85'},
- {id:'p2',titulo:'Filtros de Água',categoria:'filtros',local:'Benfica — Bairro Bié',ano:'Disponível',desc:'Filtros de qualidade para a sua solução de água.',img:'https://images.unsplash.com/photo-1526402460109-1b9f0d7a44f3?auto=format&fit=crop&w=1200&q=85'},
- {id:'p3',titulo:'Tampas para Bidões',categoria:'acessorios',local:'Benfica — Bairro Bié',ano:'Disponível',desc:'Tampas para bidões, práticas para o uso diário.',img:'https://images.unsplash.com/photo-1559839914-17aae19cec71?auto=format&fit=crop&w=1200&q=85'},
- {id:'p4',titulo:'Bidões Vazios',categoria:'acessorios',local:'Benfica — Bairro Bié',ano:'Disponível',desc:'Bidões vazios para completar o seu abastecimento.',img:'https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=1200&q=85'},
- {id:'p5',titulo:'Suportes para Bidões',categoria:'acessorios',local:'Benfica — Bairro Bié',ano:'Disponível',desc:'Suportes para bidões, pensados para maior comodidade.',img:'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1200&q=85'},
+ {id:'p1',titulo:'Água Purificada',categoria:'agua',quantidade:20,preco:5000,desc:'Água 100% purificada para o seu dia a dia.',img:'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1200&q=85'},
+ {id:'p2',titulo:'Filtros de Água',categoria:'filtros',quantidade:5,preco:12000,desc:'Filtros de qualidade para a sua solução de água.',img:'https://images.unsplash.com/photo-1526402460109-1b9f0d7a44f3?auto=format&fit=crop&w=1200&q=85'},
+ {id:'p3',titulo:'Tampas para Bidões',categoria:'acessorios',quantidade:0,preco:1000,desc:'Tampas para bidões, práticas para o uso diário.',img:'https://images.unsplash.com/photo-1559839914-17aae19cec71?auto=format&fit=crop&w=1200&q=85'},
+ {id:'p4',titulo:'Bidões Vazios',categoria:'acessorios',quantidade:20,preco:3000,desc:'Bidões vazios para completar o seu abastecimento.',img:'https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=1200&q=85'},
+ {id:'p5',titulo:'Suportes para Bidões',categoria:'acessorios',quantidade:8,preco:7500,desc:'Suportes para bidões, pensados para maior comodidade.',img:'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1200&q=85'},
 ];
 
 // ── CACHE EM MEMÓRIA (preenchida a partir do Supabase) ──
 let newsCache=DEF_NEWS, projectsCache=DEF_PROJECTS, adsCache=[];
 const fmtDate=s=>{try{return new Date(s).toLocaleDateString('pt-PT',{day:'2-digit',month:'long',year:'numeric'});}catch{return s||'';}};
+const formatarPreco=preco=>preco!==null&&preco!==undefined&&preco!==''&&Number.isFinite(Number(preco))?`${Number(preco).toLocaleString('pt-PT')} Kz`:'Preço sob consulta';
+const formatarDisponibilidade=quantidade=>Number(quantidade)>0?`${quantidade} unidades disponíveis`:'Indisponível';
 
 async function carregarDados(){
   try{
@@ -624,7 +626,7 @@ function renderProjects(){
   grid.innerHTML=projs.slice(0,3).map((p,i)=>`
     <div class="project-card reveal" style="transition-delay:${i*.1}s"
       data-category="${p.categoria}" data-title="${p.titulo}" data-image="${p.img}"
-      data-location="${p.local}" data-year="${p.ano}" data-description="${p.desc}">
+      data-quantidade="${p.quantidade}" data-preco="${p.preco ?? ''}" data-description="${p.desc}">
       <div class="card-img">
         <img src="${p.img}" alt="${p.titulo}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=60'">
         <div class="card-img-overlay"></div>
@@ -632,8 +634,8 @@ function renderProjects(){
         <button class="card-expand" aria-label="Ver projeto"><i class="fa-solid fa-expand"></i></button>
       </div>
       <div class="card-body">
-        <div class="card-meta"><h3 class="card-title">${p.titulo}</h3><span class="card-year">${p.ano}</span></div>
-        <p class="card-location"><i class="fa-solid fa-location-dot"></i> ${p.local}</p>
+        <div class="card-meta"><h3 class="card-title">${p.titulo}</h3></div>
+        <p class="card-location"><i class="fa-solid fa-tag"></i> ${formatarPreco(p.preco)}</p>
       </div>
     </div>`).join('');
   grid.querySelectorAll('.project-card').forEach(c=>{
@@ -654,8 +656,8 @@ function openModal(c){
   document.getElementById('modalImage').src=c.dataset.image||'';
   document.getElementById('modalTitle').textContent=c.dataset.title||'';
   document.getElementById('modalDescription').textContent=c.dataset.description||'';
-  document.getElementById('modalLocation').textContent=c.dataset.location||'—';
-  document.getElementById('modalYear').textContent=c.dataset.year||'—';
+  document.getElementById('modalQuantidade').textContent=formatarDisponibilidade(c.dataset.quantidade);
+  document.getElementById('modalPreco').textContent=formatarPreco(c.dataset.preco);
   document.getElementById('modalCategory').textContent=catLabel[c.dataset.category]||c.dataset.category||'—';
   modal.classList.add('open');document.body.style.overflow='hidden';
 }
