@@ -5,14 +5,15 @@
 <script src="../assets/js/supabase-config.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gestores – Eufratungos, Lda</title>
+<link rel="icon" href="../favicon.ico">
+<title>Gestores – LUMAD</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-:root{--preto:#141414;--laranja:#F3821F;--laranja-lt:#FFA24D;--azul:#00ADF1;--azul-md:#0089C2;--osso:#F7F5F1;--branco:#FFFFFF;--pedra:#6B6B68;--pedra-lt:#A7A5A0;--v:var(--laranja);--vm:var(--azul-md);--vl:var(--azul);--o:var(--laranja);--ol:var(--laranja-lt);--c:var(--preto);--cm:var(--preto);--cr:var(--osso);--b:var(--branco);--ease:cubic-bezier(.16,1,.3,1)}
+:root{--preto:#0A2540;--laranja:#0EA5E9;--laranja-lt:#5CC8F2;--azul:#0B4F8A;--azul-md:#0873B8;--osso:#F2F9FD;--branco:#FFFFFF;--pedra:#5C6B73;--pedra-lt:#A9B7BD;--v:var(--laranja);--vm:var(--azul-md);--vl:var(--azul);--o:var(--laranja);--ol:var(--laranja-lt);--c:var(--preto);--cm:var(--preto);--cr:var(--osso);--b:var(--branco);--ease:cubic-bezier(.16,1,.3,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;height:100%}
 body{font-family:'Outfit',sans-serif;color:var(--c);background:var(--cm);min-height:100vh;overflow-x:hidden}
@@ -26,7 +27,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 #loginScreen.gone{display:none}
 .login-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2.8rem 2.4rem;width:100%;max-width:420px;backdrop-filter:blur(20px)}
 .login-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:2.5rem}
-.login-lm{width:40px;height:40px;border-radius:9px;background:var(--v);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(243,130,31,.45);overflow:hidden;flex-shrink:0}
+.login-lm{width:40px;height:40px;border-radius:9px;background:var(--v);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(14,165,233,.45);overflow:hidden;flex-shrink:0}
 .login-lm img{width:40px;height:40px;object-fit:cover}
 .login-lm-txt{color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.06em;display:none}
 .login-ln{font-family:'Bebas Neue',sans-serif;color:#fff;font-size:1.2rem;letter-spacing:.15em;line-height:1}
@@ -36,7 +37,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .login-lbl{display:block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.45rem}
 .login-inp{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:.8rem 1rem;color:#fff;font-family:'Outfit',sans-serif;font-size:.92rem;outline:none;transition:border-color .3s,box-shadow .3s}
 .login-inp::placeholder{color:rgba(255,255,255,.22)}
-.login-inp:focus{border-color:rgba(243,130,31,.6);box-shadow:0 0 0 3px rgba(243,130,31,.1)}
+.login-inp:focus{border-color:rgba(14,165,233,.6);box-shadow:0 0 0 3px rgba(14,165,233,.1)}
 .login-btn{width:100%;background:var(--v);color:#fff;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:1rem;border-radius:9px;margin-top:1rem;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:background .3s,transform .25s}
 .login-btn:hover{background:var(--vl);transform:translateY(-2px)}
 .login-err{color:#ff6b6b;font-size:.78rem;margin-top:.65rem;min-height:1.2rem;text-align:center}
@@ -49,7 +50,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .pw-eye:hover{color:rgba(255,255,255,.7)}
 
 /* RECOVERY OVERLAY */
-#recoveryOverlay{position:fixed;inset:0;z-index:600;background:rgba(17,17,16,.97);backdrop-filter:blur(24px);display:none;align-items:center;justify-content:center;padding:1.5rem}
+#recoveryOverlay{position:fixed;inset:0;z-index:600;background:rgba(10,37,64,.97);backdrop-filter:blur(24px);display:none;align-items:center;justify-content:center;padding:1.5rem}
 #recoveryOverlay.show{display:flex}
 .rec-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2.6rem 2.4rem;width:100%;max-width:420px}
 .rec-back{display:inline-flex;align-items:center;gap:.45rem;font-size:.74rem;color:rgba(255,255,255,.38);margin-bottom:2rem;transition:color .3s;cursor:pointer;background:none;border:none;font-family:inherit;padding:0}
@@ -59,7 +60,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .rec-sub{color:rgba(255,255,255,.38);font-size:.82rem;line-height:1.65;margin-bottom:2rem}
 .rec-code-wrap{display:flex;gap:.45rem;justify-content:center;margin:1.5rem 0}
 .rec-code-wrap input{width:46px;height:54px;text-align:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;font-size:1.4rem;font-weight:700;font-family:'Bebas Neue',sans-serif;outline:none;transition:border-color .3s,box-shadow .3s;-webkit-appearance:none}
-.rec-code-wrap input:focus{border-color:rgba(243,130,31,.7);box-shadow:0 0 0 3px rgba(243,130,31,.12)}
+.rec-code-wrap input:focus{border-color:rgba(14,165,233,.7);box-shadow:0 0 0 3px rgba(14,165,233,.12)}
 .rec-code-wrap input.ok{border-color:rgba(0,173,241,.7)}
 .rec-code-wrap input.bad{border-color:rgba(255,107,107,.7)}
 .rec-msg{text-align:center;font-size:.76rem;min-height:1.1rem;margin-top:.5rem}
@@ -73,7 +74,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .strength-label{font-size:.68rem;margin-top:.3rem;min-height:.9rem;color:rgba(255,255,255,.3)}
 
 /* TOAST */
-#toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(130%);z-index:1000;background:#152b1e;border:1px solid rgba(243,130,31,.3);color:#fff;font-size:.82rem;font-weight:500;padding:.82rem 1.6rem;border-radius:100px;box-shadow:0 12px 40px rgba(0,0,0,.5);display:flex;align-items:center;gap:.6rem;white-space:nowrap;transition:transform .4s var(--ease),opacity .4s;pointer-events:none;opacity:0}
+#toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(130%);z-index:1000;background:#152b1e;border:1px solid rgba(14,165,233,.3);color:#fff;font-size:.82rem;font-weight:500;padding:.82rem 1.6rem;border-radius:100px;box-shadow:0 12px 40px rgba(0,0,0,.5);display:flex;align-items:center;gap:.6rem;white-space:nowrap;transition:transform .4s var(--ease),opacity .4s;pointer-events:none;opacity:0}
 #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 #toast.err{background:#2e1515;border-color:rgba(255,107,107,.3)}
 
@@ -91,7 +92,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .sb-ln{font-family:'Bebas Neue',sans-serif;color:#fff;font-size:1rem;letter-spacing:.15em;line-height:1}
 .sb-lt{font-size:.5rem;color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;margin-top:3px}
 .sb-user{padding:.9rem 1.4rem;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.7rem}
-.sb-av{width:32px;height:32px;border-radius:50%;background:rgba(243,130,31,.2);display:flex;align-items:center;justify-content:center;color:var(--ol);font-size:.8rem;flex-shrink:0}
+.sb-av{width:32px;height:32px;border-radius:50%;background:rgba(14,165,233,.2);display:flex;align-items:center;justify-content:center;color:var(--ol);font-size:.8rem;flex-shrink:0}
 .sb-un{font-size:.8rem;font-weight:600;color:#fff}
 .sb-ur{font-size:.62rem;color:rgba(255,255,255,.35);margin-top:2px}
 nav.sb-nav{flex:1;padding:1rem .8rem}
@@ -100,7 +101,7 @@ nav.sb-nav{flex:1;padding:1rem .8rem}
 .nav-item{display:flex;align-items:center;gap:.7rem;padding:.68rem .8rem;border-radius:9px;color:rgba(255,255,255,.5);font-size:.82rem;font-weight:500;transition:all .25s;cursor:pointer}
 .nav-item i{width:16px;text-align:center;font-size:.82rem;flex-shrink:0}
 .nav-item:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.85)}
-.nav-item.a{background:rgba(243,130,31,.35);color:#fff;font-weight:600}
+.nav-item.a{background:rgba(14,165,233,.35);color:#fff;font-weight:600}
 .nav-item.a i{color:var(--ol)}
 .sb-footer{padding:1rem 1.4rem;border-top:1px solid rgba(255,255,255,.06)}
 .sb-out{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:rgba(255,255,255,.35);transition:color .3s;cursor:pointer;padding:.5rem 0}
@@ -149,10 +150,10 @@ nav.sb-nav{flex:1;padding:1rem .8rem}
 @media(min-width:480px){.stats-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(min-width:1200px){.stats-row{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:2.5rem}}
 .stat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:1.3rem 1.5rem;display:flex;align-items:center;gap:1rem;transition:border-color .3s}
-.stat-card:hover{border-color:rgba(243,130,31,.25)}
+.stat-card:hover{border-color:rgba(14,165,233,.25)}
 .stat-ic{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.stat-ic.n{background:rgba(243,130,31,.25);color:var(--vl)}
-.stat-ic.a{background:rgba(243,130,31,.15);color:var(--ol)}
+.stat-ic.n{background:rgba(14,165,233,.25);color:var(--vl)}
+.stat-ic.a{background:rgba(14,165,233,.15);color:var(--ol)}
 .stat-ic.p{background:rgba(0,173,241,.15);color:var(--vl)}
 .stat-ic.u{background:rgba(255,107,107,.1);color:#ff6b6b}
 .stat-val{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#fff;line-height:1}
@@ -172,7 +173,7 @@ nav.sb-nav{flex:1;padding:1rem .8rem}
 .flbl{display:block;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.42rem}
 .finp{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:9px;padding:.72rem 1rem;color:#fff;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border-color .3s,box-shadow .3s}
 .finp::placeholder{color:rgba(255,255,255,.2)}
-.finp:focus{border-color:rgba(243,130,31,.55);box-shadow:0 0 0 3px rgba(243,130,31,.08)}
+.finp:focus{border-color:rgba(14,165,233,.55);box-shadow:0 0 0 3px rgba(14,165,233,.08)}
 .finp option{background:var(--cm);color:#fff}
 textarea.finp{resize:vertical}
 .fg2{display:grid;gap:.9rem}
@@ -202,10 +203,10 @@ textarea.finp{resize:vertical}
 .item-info{flex:1;min-width:0}
 .item-title{font-size:.88rem;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .item-meta{font-size:.66rem;color:rgba(255,255,255,.3);margin-top:.18rem}
-.item-tag{display:inline-flex;background:rgba(243,130,31,.3);color:var(--vl);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .6rem;border-radius:100px;margin-right:.3rem}
+.item-tag{display:inline-flex;background:rgba(14,165,233,.3);color:var(--vl);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .6rem;border-radius:100px;margin-right:.3rem}
 .item-actions{display:flex;gap:.4rem;flex-shrink:0}
 .ia-btn{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:rgba(255,255,255,.5);transition:all .2s;cursor:pointer}
-.ia-btn:hover{background:rgba(243,130,31,.2);color:var(--ol)}
+.ia-btn:hover{background:rgba(14,165,233,.2);color:var(--ol)}
 .ia-btn.del:hover{background:rgba(220,53,53,.2);color:#ff6b6b}
 .empty-state{text-align:center;padding:3.5rem 2rem;color:rgba(255,255,255,.2)}
 .empty-state i{font-size:2.5rem;display:block;margin-bottom:.8rem;color:rgba(255,255,255,.08)}
@@ -226,7 +227,7 @@ textarea.finp{resize:vertical}
 @media(min-width:900px){.settings-grid{grid-template-columns:1fr 1fr}}
 .settings-info-row{display:flex;align-items:center;gap:.85rem;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
 .settings-info-row:last-child{border-bottom:none}
-.si-icon{width:34px;height:34px;border-radius:8px;background:rgba(243,130,31,.12);color:var(--ol);display:flex;align-items:center;justify-content:center;font-size:.82rem;flex-shrink:0}
+.si-icon{width:34px;height:34px;border-radius:8px;background:rgba(14,165,233,.12);color:var(--ol);display:flex;align-items:center;justify-content:center;font-size:.82rem;flex-shrink:0}
 .si-lbl{font-size:.68rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.12em}
 .si-val{font-size:.9rem;font-weight:600;color:#fff;margin-top:.1rem}
 .pw-strength-bar{height:4px;border-radius:100px;background:rgba(255,255,255,.08);margin-top:.5rem;overflow:hidden}
@@ -272,13 +273,14 @@ textarea.finp{resize:vertical}
   <div class="login-card">
     <div class="login-logo">
       <div class="login-lm">
-        <img src="../assets/imagens/logo.jpg" alt="Logótipo Eufratungos" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="login-lm-txt">Eufratungos, Lda</span>
+        <img src="../assets/imagens/logo.png" alt="Logótipo LUMAD" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="login-lm-txt">LUMAD</span>
       </div>
-      <div><div class="login-ln">Eufratungos, Lda</div><div class="login-lt">Comércio · Serviços · Construção</div></div>
+      <div><div class="login-ln">LUMAD</div><div class="login-lt">Água Purificada &amp; Acessórios</div></div>
     </div>
     <h1 class="login-title">Área Restrita</h1>
-    <p class="login-sub">Acesso exclusivo para gestores autorizados da Eufratungos Comércio, Serviços, Construção e Obras Públicas.</p>
+    <p class="login-sub">Acesso exclusivo para gestores autorizados da LUMAD.</p>
+    <p class="login-sub" style="margin-top:.7rem;color:var(--vl)"><strong>Nota:</strong> para usar a palavra-passe <code>admin123</code>, defina-a manualmente para a conta do gestor no Supabase Authentication. A autenticação continua a ser feita pelo Supabase.</p>
     <form id="loginForm">
       <label for="loginEmail" class="login-lbl">Email</label>
       <input type="email" id="loginEmail" class="login-inp" placeholder="Introduza o seu email" autocomplete="username" style="margin-bottom:.9rem">
@@ -292,7 +294,7 @@ textarea.finp{resize:vertical}
     </form>
     <a class="rec-back" href="../index.html"><i class="fa-solid fa-arrow-left" style="font-size:.68rem"></i> Voltar ao início</a>
     <div style="text-align:center;margin-top:1.1rem">
-      <button id="openRecovery" type="button" style="background:none;border:none;font-family:inherit;font-size:.78rem;color:rgba(243,130,31,.65);cursor:pointer;padding:0;transition:color .3s">
+      <button id="openRecovery" type="button" style="background:none;border:none;font-family:inherit;font-size:.78rem;color:rgba(14,165,233,.65);cursor:pointer;padding:0;transition:color .3s">
         <i class="fa-solid fa-key" style="font-size:.68rem;margin-right:.3rem"></i>Esqueceu a palavra-passe?
       </button>
     </div>
@@ -309,7 +311,7 @@ textarea.finp{resize:vertical}
       <div class="rec-title">Recuperar Acesso</div>
       <p class="rec-sub">Introduza o email associado à conta de gestor para receber uma ligação de recuperação.</p>
       <label class="login-lbl" for="recEmail">Email de gestor</label>
-      <input type="email" id="recEmail" class="login-inp" placeholder="eufratungoscomercioservicos@gmail.com" autocomplete="email">
+      <input type="email" id="recEmail" class="login-inp" placeholder="manuel14kenny@gmail.com" autocomplete="email">
       <button type="button" id="recSendCode" class="login-btn" style="margin-top:1rem">
         <i class="fa-solid fa-paper-plane" style="font-size:.68rem"></i> Enviar ligação de recuperação
       </button>
@@ -356,10 +358,10 @@ textarea.finp{resize:vertical}
   <aside class="sidebar">
     <div class="sb-logo">
       <div class="sb-lm">
-        <img src="../assets/imagens/logo.jpg" alt="Logótipo Eufratungos" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="sb-lm-txt">Eufratungos, Lda</span>
+        <img src="../assets/imagens/logo.png" alt="Logótipo LUMAD" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="sb-lm-txt">LUMAD</span>
       </div>
-      <div><div class="sb-ln">Eufratungos, Lda</div><div class="sb-lt">Gestores</div></div>
+      <div><div class="sb-ln">LUMAD</div><div class="sb-lt">Gestores</div></div>
     </div>
     <div class="sb-user">
       <div class="sb-av"><i class="fa-solid fa-user"></i></div>
@@ -372,9 +374,9 @@ textarea.finp{resize:vertical}
       </div>
       <div class="nav-group">
         <div class="nav-group-lbl">Conteúdo</div>
-        <div class="nav-item" data-panel="noticias"><i class="fa-solid fa-newspaper"></i> Notícias <span class="badge" id="sbBadgeN">0</span></div>
+        <div class="nav-item" data-panel="noticias"><i class="fa-solid fa-newspaper"></i> Galeria e Publicações <span class="badge" id="sbBadgeN">0</span></div>
         <div class="nav-item" data-panel="publicidades"><i class="fa-solid fa-bullhorn"></i> Publicidades <span class="badge" id="sbBadgeA">0</span></div>
-        <div class="nav-item" data-panel="projetos"><i class="fa-solid fa-building"></i> Projetos <span class="badge" id="sbBadgeP">0</span></div>
+        <div class="nav-item" data-panel="projetos"><i class="fa-solid fa-building"></i> Produtos <span class="badge" id="sbBadgeP">0</span></div>
       </div>
       <div class="nav-group">
         <div class="nav-group-lbl">Conta</div>
@@ -402,9 +404,9 @@ textarea.finp{resize:vertical}
     <!-- MOBILE NAV -->
     <div class="mob-nav">
       <div class="mn-item a" data-panel="overview">Dashboard</div>
-      <div class="mn-item" data-panel="noticias">Notícias</div>
+      <div class="mn-item" data-panel="noticias">Galeria e Publicações</div>
       <div class="mn-item" data-panel="publicidades">Publicidades</div>
-      <div class="mn-item" data-panel="projetos">Projetos</div>
+      <div class="mn-item" data-panel="projetos">Produtos</div>
       <div class="mn-item" data-panel="settings">Definições</div>
     </div>
 
@@ -413,7 +415,7 @@ textarea.finp{resize:vertical}
       <div class="stats-row" id="statsRow"></div>
        <div class="dashboard-grid">
         <div class="fc">
-          <div class="fc-title"><i class="fa-solid fa-clock-rotate-left"></i> Últimas notícias publicadas</div>
+          <div class="fc-title"><i class="fa-solid fa-clock-rotate-left"></i> Últimas publicações publicadas</div>
           <div id="recentNews" class="items-list"></div>
         </div>
         <div class="fc">
@@ -426,29 +428,29 @@ textarea.finp{resize:vertical}
     <!-- PANEL: NOTÍCIAS -->
     <div class="panel" id="panel-noticias">
       <div class="sec-hdr">
-        <div><h2>Gestão de Notícias</h2><p>Crie, edite e elimine publicações do site.</p></div>
+        <div><h2>Gestão de Galeria e Publicações</h2><p>Crie, edite e elimine publicações do site.</p></div>
       </div>
       <div class="fc">
-        <div class="fc-title" id="nFormTitle"><i class="fa-solid fa-plus"></i> Nova Notícia</div>
+        <div class="fc-title" id="nFormTitle"><i class="fa-solid fa-plus"></i> Nova Publicação</div>
         <input type="hidden" id="nId">
          <div class="form-stack">
-          <div><label class="flbl" for="nTit">Título *</label><input class="finp" id="nTit" placeholder="Título da notícia"></div>
+          <div><label class="flbl" for="nTit">Título *</label><input class="finp" id="nTit" placeholder="Título da publicação"></div>
           <div><label class="flbl" for="nRes">Resumo *</label><textarea class="finp" id="nRes" rows="2" placeholder="Breve descrição para listagem e carrossel..."></textarea></div>
-          <div><label class="flbl" for="nContent">Conteúdo completo *</label><textarea class="finp" id="nContent" rows="6" placeholder="Texto completo da notícia..."></textarea></div>
+          <div><label class="flbl" for="nContent">Conteúdo completo *</label><textarea class="finp" id="nContent" rows="6" placeholder="Texto completo da publicação..."></textarea></div>
           <div class="fa3">
-            <div><label class="flbl" for="nCat">Categoria</label><select id="nCat" class="finp"><option>Infraestrutura</option><option>Edificação</option><option>Sustentabilidade</option><option>Institucional</option><option value="comercio">Comércio</option></select></div>
+            <div><label class="flbl" for="nCat">Categoria</label><select id="nCat" class="finp"><option>Institucional</option><option>Água Purificada</option><option>Filtros de Água</option><option>Acessórios</option><option>Entregas</option></select></div>
             <div><label class="flbl" for="nData">Data</label><input type="date" class="finp" id="nData"></div>
             <div><span class="flbl">Imagem</span><div class="upload-control"><input type="file" accept="image/*" class="file-input-hidden" id="nImg"><button type="button" class="fbtn upload-btn" data-file-trigger="nImg"><i class="fa-solid fa-image"></i> Escolher imagem</button><img class="upload-preview hid" id="nImgPreview" alt="Pré-visualização da imagem"><span class="upload-name" id="nImgName">Nenhum ficheiro selecionado</span></div></div>
           </div>
           <label class="check-row" for="nCarrossel"><input type="checkbox" id="nCarrossel"> Adicionar ao carrossel</label>
         </div>
         <div class="row-btns">
-          <button class="fbtn" id="nSave"><i class="fa-solid fa-floppy-disk" style="font-size:.68rem"></i> Guardar Notícia</button>
+          <button class="fbtn" id="nSave"><i class="fa-solid fa-floppy-disk" style="font-size:.68rem"></i> Guardar Publicação</button>
           <button class="fbtn sec hid" id="nCan">Cancelar edição</button>
         </div>
       </div>
       <div class="fc">
-        <div class="fc-title"><i class="fa-solid fa-list"></i> Notícias Publicadas</div>
+        <div class="fc-title"><i class="fa-solid fa-list"></i> Galeria e Publicações Publicadas</div>
         <div id="nList" class="items-list"></div>
       </div>
     </div>
@@ -488,28 +490,28 @@ textarea.finp{resize:vertical}
     <!-- PANEL: PROJETOS -->
     <div class="panel" id="panel-projetos">
       <div class="sec-hdr">
-        <div><h2>Gestão de Projetos</h2><p>Adicione e gira projetos do portefólio visíveis no site.</p></div>
+        <div><h2>Gestão de Produtos</h2><p>Adicione e gira produtos do portefólio visíveis no site.</p></div>
       </div>
       <div class="fc">
-        <div class="fc-title" id="pFormTitle"><i class="fa-solid fa-plus"></i> Novo Projeto</div>
+        <div class="fc-title" id="pFormTitle"><i class="fa-solid fa-plus"></i> Novo Produto</div>
         <input type="hidden" id="pId">
          <div class="form-stack">
-          <div><label class="flbl" for="pTit">Título *</label><input class="finp" id="pTit" placeholder="Nome do projeto"></div>
-          <div><label class="flbl" for="pDesc">Descrição *</label><textarea class="finp" id="pDesc" rows="3" placeholder="Descrição técnica do projeto..."></textarea></div>
-          <div><label class="flbl" for="pAno">Ano</label><input class="finp" id="pAno" placeholder="ex: 2024" type="number" min="1990" max="2030"></div>
+          <div><label class="flbl" for="pTit">Título *</label><input class="finp" id="pTit" placeholder="Nome do produto"></div>
+          <div><label class="flbl" for="pDesc">Descrição *</label><textarea class="finp" id="pDesc" rows="3" placeholder="Descrição do produto..."></textarea></div>
+          <div><label class="flbl" for="pAno">Disponibilidade</label><input class="finp" id="pAno" placeholder="ex: Disponível" type="number" min="1990" max="2030"></div>
           <div class="fg2">
-            <div><label class="flbl" for="pLoc">Localização</label><input class="finp" id="pLoc" placeholder="ex: Luanda, Angola"></div>
-            <div><label class="flbl" for="pDim">Área</label><select class="finp" id="pDim"><option value="comercio">Comércio Geral</option><option value="construcao">Construção Civil</option><option value="obras-publicas">Obras Públicas</option></select></div>
+            <div><label class="flbl" for="pLoc">Entrega / local</label><input class="finp" id="pLoc" placeholder="ex: Luanda, Angola"></div>
+            <div><label class="flbl" for="pDim">Categoria</label><select class="finp" id="pDim"><option value="agua">Água Purificada</option><option value="filtros">Filtros de Água</option><option value="acessorios">Acessórios</option></select></div>
           </div>
           <div><span class="flbl">Imagem</span><div class="upload-control"><input type="file" accept="image/*" class="file-input-hidden" id="pImg"><button type="button" class="fbtn upload-btn" data-file-trigger="pImg"><i class="fa-solid fa-image"></i> Escolher imagem</button><img class="upload-preview hid" id="pImgPreview" alt="Pré-visualização da imagem"><span class="upload-name" id="pImgName">Nenhum ficheiro selecionado</span></div></div>
         </div>
         <div class="row-btns">
-          <button class="fbtn" id="pSave"><i class="fa-solid fa-floppy-disk" style="font-size:.68rem"></i> Guardar Projeto</button>
+          <button class="fbtn" id="pSave"><i class="fa-solid fa-floppy-disk" style="font-size:.68rem"></i> Guardar Produto</button>
           <button class="fbtn sec hid" id="pCan">Cancelar edição</button>
         </div>
       </div>
       <div class="fc">
-        <div class="fc-title"><i class="fa-solid fa-list"></i> Projetos Cadastrados</div>
+        <div class="fc-title"><i class="fa-solid fa-list"></i> Produtos Cadastrados</div>
         <div id="pList" class="items-list"></div>
       </div>
     </div>
@@ -549,7 +551,7 @@ textarea.finp{resize:vertical}
             <div class="fc-title"><i class="fa-solid fa-envelope"></i> Email de Recuperação</div>
                <p class="settings-muted">Este email é usado para recuperar o acesso quando a palavra-passe é esquecida. Certifique-se de que o email está correto e acessível.</p>
             <label class="flbl" for="settingsEmail">Endereço de email</label>
-            <input type="email" id="settingsEmail" class="finp" placeholder="eufratungoscomercioservicos@gmail.com">
+            <input type="email" id="settingsEmail" class="finp" placeholder="manuel14kenny@gmail.com">
             <div class="row-btns">
               <button class="fbtn" id="saveEmail"><i class="fa-solid fa-floppy-disk" style="font-size:.68rem"></i> Guardar Email</button>
             </div>
@@ -600,7 +602,7 @@ textarea.finp{resize:vertical}
 
 <script>
 /* =====================================================
-   EUFRATUNGOS, LDA - gestores/index.html
+   LUMAD - gestores/index.html
    Autenticação: Supabase Auth (email + palavra-passe)
    Dados: Supabase (tabelas news, ads, projects) + Storage (bucket 'imagens')
    ===================================================== */
@@ -637,7 +639,7 @@ document.querySelectorAll('[data-file-trigger]').forEach(button=>{
     reader.readAsDataURL(file);
   });
 });
-const catLabel={comercio:'Comércio Geral',construcao:'Construção Civil','obras-publicas':'Obras Públicas'};
+const catLabel={agua:'Água Purificada',filtros:'Filtros de Água',acessorios:'Acessórios'};
 const fD=s=>{try{return new Date(s).toLocaleDateString('pt-PT',{day:'2-digit',month:'long',year:'numeric'});}catch{return s||'';}};
 
 /* ── TOAST ──────────────────────────────────────────── */
@@ -798,7 +800,7 @@ document.getElementById('recSavePW').addEventListener('click', async ()=>{
 
 /* ── NAVIGATION ─────────────────────────────────────── */
 const panels=['overview','noticias','publicidades','projetos','settings'];
-const titles={overview:'Dashboard',noticias:'Gestão de Notícias',publicidades:'Gestão de Publicidades',projetos:'Gestão de Projetos',settings:'Definições de Acesso'};
+const titles={overview:'Dashboard',noticias:'Gestão de Galeria e Publicações',publicidades:'Gestão de Publicidades',projetos:'Gestão de Produtos',settings:'Definições de Acesso'};
 
 function switchPanel(name){
   panels.forEach(p=>document.getElementById('panel-'+p).classList.toggle('a',p===name));
@@ -833,13 +835,13 @@ function updateBadges(){
 function renderOverview(){
   const n=newsData,a=adsData,p=projectsData;
   document.getElementById('statsRow').innerHTML=`
-    <div class="stat-card"><div class="stat-ic n"><i class="fa-solid fa-newspaper"></i></div><div><div class="stat-val">${n.length}</div><div class="stat-lbl">Notícias</div></div></div>
+    <div class="stat-card"><div class="stat-ic n"><i class="fa-solid fa-newspaper"></i></div><div><div class="stat-val">${n.length}</div><div class="stat-lbl">Galeria e Publicações</div></div></div>
     <div class="stat-card"><div class="stat-ic a"><i class="fa-solid fa-bullhorn"></i></div><div><div class="stat-val">${a.length}</div><div class="stat-lbl">Publicidades</div></div></div>
-    <div class="stat-card"><div class="stat-ic p"><i class="fa-solid fa-building"></i></div><div><div class="stat-val">${p.length}</div><div class="stat-lbl">Projetos</div></div></div>
+    <div class="stat-card"><div class="stat-ic p"><i class="fa-solid fa-building"></i></div><div><div class="stat-val">${p.length}</div><div class="stat-lbl">Produtos</div></div></div>
     <div class="stat-card"><div class="stat-ic u"><i class="fa-solid fa-eye"></i></div><div><div class="stat-val">${n.length+a.length+p.length}</div><div class="stat-lbl">Total itens</div></div></div>
   `;
   const rn=document.getElementById('recentNews');
-  if(!n.length){rn.innerHTML='<div class="empty-state"><i class="fa-solid fa-newspaper"></i><p>Sem notícias</p></div>';}
+  if(!n.length){rn.innerHTML='<div class="empty-state"><i class="fa-solid fa-newspaper"></i><p>Sem publicações</p></div>';}
   else rn.innerHTML=n.slice(0,4).map((item,i)=>`
     <div class="item-row">
       <img class="item-thumb" src="${item.img||DEF_IMG[i%4]}" alt="" onerror="this.src='${DEF_IMG[i%4]}'">
@@ -859,7 +861,7 @@ function renderOverview(){
 /* ── NOTÍCIAS CRUD ──────────────────────────────────── */
 function renderNewsList(){
   const data=newsData,el=document.getElementById('nList');
-  if(!data.length){el.innerHTML='<div class="empty-state"><i class="fa-solid fa-newspaper"></i><p>Sem notícias cadastradas.</p></div>';return;}
+  if(!data.length){el.innerHTML='<div class="empty-state"><i class="fa-solid fa-newspaper"></i><p>Sem publicações cadastradas.</p></div>';return;}
   el.innerHTML=data.map((n,i)=>`
     <div class="item-row">
       <img class="item-thumb" src="${n.img||DEF_IMG[i%4]}" alt="" onerror="this.src='${DEF_IMG[i%4]}'">
@@ -896,8 +898,8 @@ document.getElementById('nSave').addEventListener('click',async()=>{
       newsData.unshift(created);
     }
     resetNewsForm();renderNewsList();renderOverview();updateBadges();
-    toast(id?'Notícia actualizada com sucesso.':'Notícia publicada com sucesso.');
-  }catch(e){toast('Erro ao guardar a notícia.',true);}
+    toast(id?'Publicação actualizada com sucesso.':'Publicação publicada com sucesso.');
+  }catch(e){toast('Erro ao guardar a publicação.',true);}
   finally{btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-floppy-disk mr-2"></i> Guardar publicação';}
 });
 document.getElementById('nCan').addEventListener('click',resetNewsForm);
@@ -911,18 +913,18 @@ window.editNews=function(id){
   document.getElementById('nData').value=n.data||'';
   document.getElementById('nCarrossel').checked=Boolean(n.carrossel);
   setImagePreview('nImg',n.img||'',n.img?'Imagem atual':'' );
-  document.getElementById('nFormTitle').innerHTML='<i class="fa-solid fa-pen"></i> Editar Notícia';
+  document.getElementById('nFormTitle').innerHTML='<i class="fa-solid fa-pen"></i> Editar Publicação';
   document.getElementById('nCan').classList.remove('hid');
   switchPanel('noticias');
   document.getElementById('nTit').scrollIntoView({behavior:'smooth',block:'center'});
 };
 window.deleteNews=async function(id){
-  if(!confirm('Eliminar notícia?'))return;
+  if(!confirm('Eliminar publicação?'))return;
   try{
     await EufraDB.remove('news',id);
     newsData=newsData.filter(x=>String(x.id)!==String(id));
-    renderNewsList();renderOverview();updateBadges();toast('Notícia eliminada.');
-  }catch(e){toast('Erro ao eliminar a notícia.',true);}
+    renderNewsList();renderOverview();updateBadges();toast('Publicação eliminada.');
+  }catch(e){toast('Erro ao eliminar a publicação.',true);}
 };
 function resetNewsForm(){
   document.getElementById('nId').value='';
@@ -931,7 +933,7 @@ function resetNewsForm(){
   document.getElementById('nImg').value='';
   document.getElementById('nCarrossel').checked=false;
   setImagePreview('nImg');
-  document.getElementById('nFormTitle').innerHTML='<i class="fa-solid fa-plus"></i> Nova Notícia';
+  document.getElementById('nFormTitle').innerHTML='<i class="fa-solid fa-plus"></i> Nova Publicação';
   document.getElementById('nCan').classList.add('hid');
 }
 
@@ -1016,7 +1018,7 @@ function resetAdForm(){
 /* ── PROJETOS CRUD ──────────────────────────────────── */
 function renderProjectsList(){
   const data=projectsData,el=document.getElementById('pList');
-  if(!data.length){el.innerHTML='<div class="empty-state"><i class="fa-solid fa-building"></i><p>Sem projetos cadastrados.</p></div>';return;}
+  if(!data.length){el.innerHTML='<div class="empty-state"><i class="fa-solid fa-building"></i><p>Sem produtos cadastrados.</p></div>';return;}
   el.innerHTML=data.map((p,i)=>`
     <div class="item-row">
       <img class="item-thumb" src="${p.img||DEF_IMG[i%4]}" alt="" onerror="this.src='${DEF_IMG[i%4]}'">
@@ -1052,8 +1054,8 @@ document.getElementById('pSave').addEventListener('click',async()=>{
       projectsData.unshift(created);
     }
     resetProjectForm();renderProjectsList();renderOverview();updateBadges();
-    toast(id?'Projeto actualizado.':'Projeto adicionado ao portefólio.');
-  }catch(e){toast('Erro ao guardar o projeto.',true);}
+    toast(id?'Produto actualizado.':'Produto adicionado ao portefólio.');
+  }catch(e){toast('Erro ao guardar o produto.',true);}
   finally{btn.disabled=false;btn.innerHTML=orig;}
 });
 document.getElementById('pCan').addEventListener('click',resetProjectForm);
@@ -1066,26 +1068,26 @@ window.editProject=function(id){
   document.getElementById('pAno').value=p.ano||'';
   document.getElementById('pLoc').value=p.local||'';
   setImagePreview('pImg',p.img||'',p.img?'Imagem atual':'');
-  document.getElementById('pFormTitle').innerHTML='<i class="fa-solid fa-pen"></i> Editar Projeto';
+  document.getElementById('pFormTitle').innerHTML='<i class="fa-solid fa-pen"></i> Editar Produto';
   document.getElementById('pCan').classList.remove('hid');
   switchPanel('projetos');
   document.getElementById('pTit').scrollIntoView({behavior:'smooth',block:'center'});
 };
 window.deleteProject=async function(id){
-  if(!confirm('Eliminar projeto?'))return;
+  if(!confirm('Eliminar produto?'))return;
   try{
     await EufraDB.remove('projects',id);
     projectsData=projectsData.filter(x=>String(x.id)!==String(id));
-    renderProjectsList();renderOverview();updateBadges();toast('Projeto eliminado.');
-  }catch(e){toast('Erro ao eliminar o projeto.',true);}
+    renderProjectsList();renderOverview();updateBadges();toast('Produto eliminado.');
+  }catch(e){toast('Erro ao eliminar o produto.',true);}
 };
 function resetProjectForm(){
   document.getElementById('pId').value='';
   ['pTit','pDesc','pAno','pLoc'].forEach(i=>document.getElementById(i).value='');
-  document.getElementById('pDim').value='comercio';
+  document.getElementById('pDim').value='agua';
   document.getElementById('pImg').value='';
   setImagePreview('pImg');
-  document.getElementById('pFormTitle').innerHTML='<i class="fa-solid fa-plus"></i> Novo Projeto';
+  document.getElementById('pFormTitle').innerHTML='<i class="fa-solid fa-plus"></i> Novo Produto';
   document.getElementById('pCan').classList.add('hid');
 }
 

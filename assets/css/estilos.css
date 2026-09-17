@@ -1,13 +1,14 @@
 /* ===========================================
-   Eufratungos ENGENHARIA – estilos.css
+   LUMAD – estilos.css
    =========================================== */
 
 /* ─── Root Variables ─── */
 :root {
-  --preto: #141414; --laranja: #F3821F; --laranja-lt: #FFA24D;
-  --azul: #00ADF1; --azul-md: #0089C2; --osso: #F7F5F1; --branco: #FFFFFF;
-  --pedra: #6B6B68; --pedra-lt: #A7A5A0;
-  --shadow-laranja: 0 20px 40px rgba(243, 130, 31, .15);
+  --preto: #0A2540; --laranja: #0EA5E9; --laranja-lt: #5CC8F2;
+  --azul: #0B4F8A; --azul-md: #0873B8; --osso: #F2F9FD; --branco: #FFFFFF;
+  --pedra: #5C6B73; --pedra-lt: #A9B7BD;
+  --shadow-laranja: 0 20px 40px rgba(14, 165, 233, .15);
+  --ease: cubic-bezier(.16,1,.3,1); --ease2: cubic-bezier(.4,0,.2,1);
 }
 
 /* ─── Base ─── */
@@ -142,7 +143,7 @@ body {
 }
 .project-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(243, 130, 31, 0.3);
+  border-color: rgba(14, 165, 233, 0.3);
   box-shadow: 0 24px 48px rgba(0,0,0,0.4);
 }
 
@@ -163,7 +164,7 @@ body {
 .card-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(243, 130, 31, 0.7);
+  background: rgba(14, 165, 233, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,7 +177,7 @@ body {
   position: absolute;
   top: 14px;
   left: 14px;
-  background: rgba(243, 130, 31, 0.9);
+  background: rgba(14, 165, 233, 0.9);
   color: #fff;
   font-size: 11px;
   padding: 5px 12px;
@@ -234,7 +235,7 @@ body {
 }
 .noticia-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 40px rgba(243, 130, 31, 0.12);
+  box-shadow: 0 16px 40px rgba(14, 165, 233, 0.12);
 }
 .noticia-card img {
   width: 100%;
