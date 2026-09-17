@@ -152,12 +152,12 @@ nav.sb-nav{flex:1;padding:1rem .8rem}
 .stat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:1.3rem 1.5rem;display:flex;align-items:center;gap:1rem;transition:border-color .3s}
 .stat-card:hover{border-color:rgba(14,165,233,.25)}
 .stat-ic{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.stat-ic.n{background:rgba(14,165,233,.25);color:var(--vl)}
-.stat-ic.a{background:rgba(14,165,233,.15);color:var(--ol)}
-.stat-ic.p{background:rgba(0,173,241,.15);color:var(--vl)}
-.stat-ic.u{background:rgba(255,107,107,.1);color:#ff6b6b}
+.stat-ic.n{background:#0ea5e9;color:#fff}
+.stat-ic.a{background:#0873b8;color:#fff}
+.stat-ic.p{background:#5cc8f2;color:#0a2540}
+.stat-ic.u{background:#ff6b6b;color:#fff}
 .stat-val{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#fff;line-height:1}
-.stat-lbl{font-size:.7rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.12em;margin-top:.15rem}
+.stat-lbl{font-size:.7rem;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:.12em;margin-top:.15rem}
 
 /* SECTION HEADER */
 .sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:1.8rem;gap:1rem;flex-wrap:wrap}
@@ -203,7 +203,7 @@ textarea.finp{resize:vertical}
 .item-info{flex:1;min-width:0}
 .item-title{font-size:.88rem;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .item-meta{font-size:.66rem;color:rgba(255,255,255,.3);margin-top:.18rem}
-.item-tag{display:inline-flex;background:rgba(14,165,233,.3);color:var(--vl);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .6rem;border-radius:100px;margin-right:.3rem}
+.item-tag{display:inline-flex;background:#0ea5e9;color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .6rem;border-radius:100px;margin-right:.3rem}
 .item-actions{display:flex;gap:.4rem;flex-shrink:0}
 .ia-btn{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:rgba(255,255,255,.5);transition:all .2s;cursor:pointer}
 .ia-btn:hover{background:rgba(14,165,233,.2);color:var(--ol)}
@@ -498,9 +498,9 @@ textarea.finp{resize:vertical}
          <div class="form-stack">
           <div><label class="flbl" for="pTit">Título *</label><input class="finp" id="pTit" placeholder="Nome do produto"></div>
           <div><label class="flbl" for="pDesc">Descrição *</label><textarea class="finp" id="pDesc" rows="3" placeholder="Descrição do produto..."></textarea></div>
-          <div><label class="flbl" for="pAno">Disponibilidade</label><input class="finp" id="pAno" placeholder="ex: Disponível" type="number" min="1990" max="2030"></div>
+          <div><label class="flbl" for="pQuantidade">Quantidades disponíveis</label><input class="finp" id="pQuantidade" placeholder="ex: 20" type="number" min="0" step="1"></div>
           <div class="fg2">
-            <div><label class="flbl" for="pLoc">Entrega / local</label><input class="finp" id="pLoc" placeholder="ex: Luanda, Angola"></div>
+            <div><label class="flbl" for="pPreco">Preço (Kz)</label><input class="finp" id="pPreco" placeholder="ex: 5000" type="number" min="0" step="1"></div>
             <div><label class="flbl" for="pDim">Categoria</label><select class="finp" id="pDim"><option value="agua">Água Purificada</option><option value="filtros">Filtros de Água</option><option value="acessorios">Acessórios</option></select></div>
           </div>
           <div><span class="flbl">Imagem</span><div class="upload-control"><input type="file" accept="image/*" class="file-input-hidden" id="pImg"><button type="button" class="fbtn upload-btn" data-file-trigger="pImg"><i class="fa-solid fa-image"></i> Escolher imagem</button><img class="upload-preview hid" id="pImgPreview" alt="Pré-visualização da imagem"><span class="upload-name" id="pImgName">Nenhum ficheiro selecionado</span></div></div>
@@ -641,6 +641,7 @@ document.querySelectorAll('[data-file-trigger]').forEach(button=>{
 });
 const catLabel={agua:'Água Purificada',filtros:'Filtros de Água',acessorios:'Acessórios'};
 const fD=s=>{try{return new Date(s).toLocaleDateString('pt-PT',{day:'2-digit',month:'long',year:'numeric'});}catch{return s||'';}};
+const formatarPreco=preco=>preco!==null&&preco!==undefined&&preco!==''&&Number.isFinite(Number(preco))?`${Number(preco).toLocaleString('pt-PT')} Kz`:'Preço sob consulta';
 
 /* ── TOAST ──────────────────────────────────────────── */
 let toastTimer;
@@ -1022,7 +1023,7 @@ function renderProjectsList(){
   el.innerHTML=data.map((p,i)=>`
     <div class="item-row">
       <img class="item-thumb" src="${p.img||DEF_IMG[i%4]}" alt="" onerror="this.src='${DEF_IMG[i%4]}'">
-      <div class="item-info"><div class="item-title">${p.titulo}</div><div class="item-meta"><span class="item-tag">${catLabel[p.categoria]||p.categoria}</span>${p.local||''}${p.ano?' · '+p.ano:''}</div></div>
+      <div class="item-info"><div class="item-title">${p.titulo}</div><div class="item-meta"><span class="item-tag">${catLabel[p.categoria]||p.categoria}</span>${formatarPreco(p.preco)} · ${Number(p.quantidade)>0?p.quantidade+' unidades disponíveis':'Indisponível'}</div></div>
       <div class="item-actions">
         <div class="ia-btn" onclick="editProject('${p.id}')"><i class="fa-solid fa-pen"></i></div>
         <div class="ia-btn del" onclick="deleteProject('${p.id}')"><i class="fa-solid fa-trash"></i></div>
@@ -1035,8 +1036,8 @@ document.getElementById('pSave').addEventListener('click',async()=>{
   const tit=document.getElementById('pTit').value.trim();
   const desc=document.getElementById('pDesc').value.trim();
   const cat=document.getElementById('pDim').value;
-  const ano=document.getElementById('pAno').value;
-  const loc=document.getElementById('pLoc').value.trim();
+  const quantidade=document.getElementById('pQuantidade').value;
+  const preco=document.getElementById('pPreco').value;
   const fi=document.getElementById('pImg');
   if(!tit||!desc)return toast('Preencha os campos obrigatórios (*)',true);
   btn.disabled=true;const orig=btn.innerHTML;btn.innerHTML='<i class="fa-solid fa-spinner fa-spin mr-2"></i> A guardar...';
@@ -1044,13 +1045,13 @@ document.getElementById('pSave').addEventListener('click',async()=>{
     let img=null;
     if(fi.files[0])img=await EufraDB.uploadImagem(fi.files[0]);
     if(id){
-      const payload={titulo:tit,descricao:desc,categoria:cat,ano,local:loc};
+      const payload={titulo:tit,descricao:desc,categoria:cat,quantidade:quantidade===''?null:Number(quantidade),preco:preco===''?null:Number(preco)};
       if(img)payload.img=img;
       const updated=await EufraDB.update('projects',id,payload);
       const idx=projectsData.findIndex(p=>String(p.id)===String(id));
       if(idx>-1)projectsData[idx]=updated;
     }else{
-      const created=await EufraDB.insert('projects',{titulo:tit,descricao:desc,categoria:cat,ano,local:loc,img:img||''});
+      const created=await EufraDB.insert('projects',{titulo:tit,descricao:desc,categoria:cat,quantidade:quantidade===''?null:Number(quantidade),preco:preco===''?null:Number(preco),img:img||''});
       projectsData.unshift(created);
     }
     resetProjectForm();renderProjectsList();renderOverview();updateBadges();
@@ -1065,8 +1066,8 @@ window.editProject=function(id){
   document.getElementById('pTit').value=p.titulo;
   document.getElementById('pDesc').value=p.descricao||'';
   document.getElementById('pDim').value=p.categoria;
-  document.getElementById('pAno').value=p.ano||'';
-  document.getElementById('pLoc').value=p.local||'';
+  document.getElementById('pQuantidade').value=p.quantidade??'';
+  document.getElementById('pPreco').value=p.preco??'';
   setImagePreview('pImg',p.img||'',p.img?'Imagem atual':'');
   document.getElementById('pFormTitle').innerHTML='<i class="fa-solid fa-pen"></i> Editar Produto';
   document.getElementById('pCan').classList.remove('hid');
@@ -1083,7 +1084,7 @@ window.deleteProject=async function(id){
 };
 function resetProjectForm(){
   document.getElementById('pId').value='';
-  ['pTit','pDesc','pAno','pLoc'].forEach(i=>document.getElementById(i).value='');
+  ['pTit','pDesc','pQuantidade','pPreco'].forEach(i=>document.getElementById(i).value='');
   document.getElementById('pDim').value='agua';
   document.getElementById('pImg').value='';
   setImagePreview('pImg');
