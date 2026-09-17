@@ -1,8 +1,8 @@
 /* ===========================================
    LUMAD – Configuração Supabase
    =========================================== */
-const SUPABASE_URL = 'https://nwhgfskwshvoujhaoevt.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_4kg0FN_r_C9umEzcRHxOHw__MIiaAsB';
+const SUPABASE_URL = 'https://vnimhcbpzmhsqguvxriz.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_4f1H6H-AooRwWXdOo9PGaw_s__5qqxt';
 
 const sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
