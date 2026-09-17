@@ -1,5 +1,5 @@
 /* ===========================================
-   Eufratungos ENGENHARIA – principal.js
+   LUMAD – principal.js
    =========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ──────────────────────────────────────────
      6. NOTÍCIAS – CRUD + Carrossel
   ────────────────────────────────────────── */
-  const STORAGE_KEY   = 'eufratungos_publicacoes';
+  const STORAGE_KEY   = 'lumad_publicacoes';
   const ADMIN_PASS    = 'admin123';
   const CARDS_POR_PAG = getCardsPerPage();
 
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Publicações padrão ──
   const publicacoesDefault = [
-    {id: crypto.randomUUID(), titulo: 'Bem-vindo ao novo site da Eufratungos', resumo: 'Este espaço receberá informações institucionais e novidades verificadas da empresa.', categoria: 'Institucional', imagem: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80', data: ''}
+    {id: crypto.randomUUID(), titulo: 'Bem-vindo à LUMAD', resumo: 'Conheça a LUMAD, a sua escolha de água purificada e acessórios em Benfica.', categoria: 'Institucional', imagem: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=800&q=85', data: ''}
   ];
 
   // ── Storage helpers ──

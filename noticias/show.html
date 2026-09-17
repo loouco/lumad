@@ -5,13 +5,14 @@
 <script src="../assets/js/supabase-config.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Notícias – Eufratungos, Lda</title>
+<link rel="icon" href="../favicon.ico">
+<title>Galeria e Publicações – LUMAD</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-:root{--preto:#141414;--laranja:#F3821F;--laranja-lt:#FFA24D;--azul:#00ADF1;--azul-md:#0089C2;--osso:#F7F5F1;--branco:#FFFFFF;--pedra:#6B6B68;--pedra-lt:#A7A5A0;--v:var(--laranja);--vm:var(--azul-md);--vl:var(--azul);--o:var(--laranja);--ol:var(--laranja-lt);--c:var(--preto);--cm:var(--preto);--cr:var(--osso);--b:var(--branco);--ease:cubic-bezier(.16,1,.3,1)}
+:root{--preto:#0A2540;--laranja:#0EA5E9;--laranja-lt:#5CC8F2;--azul:#0B4F8A;--azul-md:#0873B8;--osso:#F2F9FD;--branco:#FFFFFF;--pedra:#5C6B73;--pedra-lt:#A9B7BD;--v:var(--laranja);--vm:var(--azul-md);--vl:var(--azul);--o:var(--laranja);--ol:var(--laranja-lt);--c:var(--preto);--cm:var(--preto);--cr:var(--osso);--b:var(--branco);--ease:cubic-bezier(.16,1,.3,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Outfit',sans-serif;color:var(--c);background:var(--b);overflow-x:hidden}
@@ -21,7 +22,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--v);border-radius:4px}
 
 /* HEADER */
-header{background:rgba(17,17,16,.97);backdrop-filter:blur(24px);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(243,130,31,.12)}
+header{background:rgba(10,37,64,.97);backdrop-filter:blur(24px);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(14,165,233,.12)}
 .hw{max-width:1320px;margin:0 auto;padding:.9rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
 @media(min-width:768px){.hw{padding:.95rem 2.5rem}}
 .lw{display:flex;align-items:center;gap:.6rem}
@@ -56,14 +57,14 @@ header{background:rgba(17,17,16,.97);backdrop-filter:blur(24px);position:sticky;
 .tab{padding:1rem 1.4rem;font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#999;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .3s,border-color .3s;background:none}
 .tab.a{color:var(--v);border-color:var(--v)}
 
-/* SEARCH + FILTER BAR (notícias) */
+/* SEARCH + FILTER BAR (publicaçãos) */
 .filter-bar{background:var(--b);border-bottom:1px solid #E8E4DB;padding:1rem 0}
 .filter-bar-inner{max-width:1320px;margin:0 auto;padding:0 1.5rem;display:flex;flex-direction:column;gap:.85rem}
 @media(min-width:700px){.filter-bar-inner{flex-direction:row;align-items:center;justify-content:space-between;padding:0 2.5rem}}
 .search-wrap{position:relative;flex:1;max-width:380px}
 .search-wrap i{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:#aaa;font-size:.78rem;pointer-events:none}
 #searchInput{width:100%;background:#fff;border:1px solid #E8E4DB;border-radius:8px;padding:.6rem .9rem .6rem 2.3rem;font-family:'Outfit',sans-serif;font-size:.85rem;color:var(--c);outline:none;transition:border-color .3s,box-shadow .3s}
-#searchInput:focus{border-color:var(--v);box-shadow:0 0 0 3px rgba(243,130,31,.08)}
+#searchInput:focus{border-color:var(--v);box-shadow:0 0 0 3px rgba(14,165,233,.08)}
 .cats{display:flex;flex-wrap:wrap;gap:.38rem}
 .catb{border:1px solid #E8E4DB;color:#888;font-size:.67rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.36rem .82rem;border-radius:100px;transition:all .3s;background:#fff}
 .catb:hover{border-color:var(--v);color:var(--v)}
@@ -108,7 +109,7 @@ header{background:rgba(17,17,16,.97);backdrop-filter:blur(24px);position:sticky;
 #articleView.show{display:block}
 .art-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--v);font-weight:600;margin-bottom:2rem;transition:gap .3s}
 .art-back:hover{gap:.8rem}
-.art-cat{display:inline-flex;align-items:center;background:rgba(243,130,31,.08);color:var(--v);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;margin-bottom:.9rem}
+.art-cat{display:inline-flex;align-items:center;background:rgba(14,165,233,.08);color:var(--v);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;margin-bottom:.9rem}
 .art-title{font-family:'Archivo Black',sans-serif;font-weight:900;font-size:clamp(1.8rem,4vw,3rem);line-height:1.15;color:var(--c)}
 .art-meta{display:flex;align-items:center;gap:1rem;margin-top:1rem;font-size:.8rem;color:#bbb;flex-wrap:wrap}
 .art-meta i{font-size:.72rem;color:var(--o)}
@@ -157,7 +158,7 @@ header{background:rgba(17,17,16,.97);backdrop-filter:blur(24px);position:sticky;
 .miw{position:relative;height:250px}
 @media(min-width:700px){.miw{height:340px}}
 .miw img{width:100%;height:100%;object-fit:cover;display:block}
-.miw::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,16,.72),transparent 50%)}
+.miw::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,37,64,.72),transparent 50%)}
 #adMclose{position:absolute;top:.9rem;right:.9rem;z-index:1;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.32);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.82rem;transition:background .3s}
 #adMclose:hover{background:rgba(255,255,255,.14)}
 .mtw{position:absolute;bottom:1.4rem;left:2rem;z-index:1}
@@ -195,10 +196,10 @@ footer .back:hover{color:#fff}
   <div class="hw">
     <a href="../index.html" class="lw">
       <div class="lm">
-        <img src="../assets/imagens/logo.jpg" alt="Logótipo Eufratungos" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <span class="lm-txt" style="display:none">Eufratungos, Lda</span>
+        <img src="../assets/imagens/logo.png" alt="Logótipo LUMAD" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="lm-txt" style="display:none">LUMAD</span>
       </div>
-      <div><span class="ln">Eufratungos, Lda</span><span class="lt">Comércio · Serviços · Construção</span></div>
+      <div><span class="ln">LUMAD</span><span class="lt">Água Purificada &amp; Acessórios</span></div>
     </a>
     <a href="../index.html#contacto" class="hbtn"><i class="fa-solid fa-paper-plane" style="font-size:.64rem"></i> Solicitar Proposta</a>
   </div>
@@ -210,18 +211,18 @@ footer .back:hover{color:#fff}
     <nav class="bc">
       <a href="../index.html"><i class="fa-solid fa-house" style="font-size:.7rem"></i> Início</a>
       <span class="sep">/</span>
-      <span style="color:rgba(255,255,255,.65)" id="heroLabel">Notícias</span>
+      <span style="color:rgba(255,255,255,.65)" id="heroLabel">Galeria e Publicações</span>
     </nav>
     <div class="ey"><div class="r"></div><span>Atualizações</span></div>
-    <h1 class="hero-t">Notícias &<br>Informações</h1>
-    <p class="hero-sub">Este espaço será actualizado com notícias e informações institucionais verificadas da Eufratungos.</p>
+    <h1 class="hero-t">Galeria e Publicações &<br>Informações</h1>
+    <p class="hero-sub">Acompanhe as publicações, novidades e informações da LUMAD.</p>
   </div>
 </div>
 
 <!-- TABS -->
 <div class="tabs-bar" id="tabsBar">
   <div class="tabs-inner">
-    <button class="tab a" data-tab="noticias"><i class="fa-solid fa-newspaper" style="margin-right:.4rem;font-size:.75rem"></i>Notícias</button>
+    <button class="tab a" data-tab="noticias"><i class="fa-solid fa-newspaper" style="margin-right:.4rem;font-size:.75rem"></i>Galeria e Publicações</button>
     <button class="tab" data-tab="publicidades"><i class="fa-solid fa-bullhorn" style="margin-right:.4rem;font-size:.75rem"></i>Informações</button>
   </div>
 </div>
@@ -233,7 +234,7 @@ footer .back:hover{color:#fff}
     <div class="filter-bar-inner">
       <div class="search-wrap">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" id="searchInput" placeholder="Pesquisar notícias...">
+        <input type="search" id="searchInput" placeholder="Pesquisar publicaçãos...">
       </div>
       <div class="cats">
         <button class="catb a" data-cat="all">Todas</button>
@@ -241,7 +242,7 @@ footer .back:hover{color:#fff}
         <button class="catb" data-cat="Edificação">Edificação</button>
         <button class="catb" data-cat="Sustentabilidade">Sustentabilidade</button>
         <button class="catb" data-cat="Institucional">Institucional</button>
-        <button class="catb" data-cat="comercio">Comércio</button>
+        <button class="catb" data-cat="Água Purificada">Água Purificada</button>
       </div>
     </div>
   </div>
@@ -253,7 +254,7 @@ footer .back:hover{color:#fff}
 
   <!-- ARTICLE DETAIL -->
   <div id="articleView">
-    <button class="art-back" id="artBack"><i class="fa-solid fa-arrow-left" style="font-size:.72rem"></i> Voltar às Notícias</button>
+    <button class="art-back" id="artBack"><i class="fa-solid fa-arrow-left" style="font-size:.72rem"></i> Voltar às Galeria e Publicações</button>
     <span class="art-cat" id="artCat"></span>
     <h1 class="art-title" id="artTitle"></h1>
     <div class="art-meta">
@@ -308,21 +309,21 @@ footer .back:hover{color:#fff}
 
 <footer>
   <div class="fw">
-    <p>© 2026 Eufratungos, Lda. Todos os direitos reservados.</p>
+    <p>© 2026 LUMAD. Todos os direitos reservados.</p>
     <a href="../index.html" class="back"><i class="fa-solid fa-arrow-left" style="font-size:.7rem"></i> Voltar ao Início</a>
   </div>
 </footer>
 
 <script>
 /* =====================================================
-   EUFRATUNGOS, LDA – noticias/show.html
+   LUMAD – noticias/show.html
    Dados dinâmicos via Supabase (tabelas: news, ads)
    ===================================================== */
 (()=>{
 'use strict';
 
 const DEF_NEWS=[
-  {id:'n1',titulo:'Bem-vindo ao novo site da Eufratungos',resumo:'Este espaço receberá informações institucionais e novidades verificadas da empresa.',content:'Bem-vindo ao site da Eufratungos, Lda. As notícias serão adicionadas à medida que exista informação institucional confirmada.',categoria:'Institucional',data:'',img:'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=70'},
+  {id:'n1',titulo:'Bem-vindo à LUMAD',resumo:'Conheça a LUMAD, a sua escolha de água purificada e acessórios em Benfica.',content:'Bem-vindo à LUMAD. Acompanhe aqui as nossas publicações e novidades.',categoria:'Institucional',data:'',img:'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=900&q=85'},
 ];
 
 const DEF_ADS=[];
@@ -394,7 +395,7 @@ function renderNews(){
   const all=getFiltered();
   const g=document.getElementById('newsGrid');
   if(!all.length){
-    g.innerHTML=`<div class="no-results rv"><i class="fa-solid fa-newspaper"></i><p>Nenhuma notícia encontrada.<br>Tente ajustar os filtros ou a pesquisa.</p></div>`;
+    g.innerHTML=`<div class="no-results rv"><i class="fa-solid fa-newspaper"></i><p>Nenhuma publicação encontrada.<br>Tente ajustar os filtros ou a pesquisa.</p></div>`;
     observeNew();return;
   }
   g.innerHTML=all.map((n,i)=>{
@@ -409,7 +410,7 @@ function renderNews(){
         <p class="ndate"><i class="fa-regular fa-calendar" style="margin-right:.3rem;color:var(--o);font-size:.68rem"></i>${fD(n.data)}</p>
         <h2 class="ntit">${n.titulo}</h2>
         <p class="nresume">${n.resumo}</p>
-        <button class="nlink" data-read="${n.id}">Ler notícia completa <i class="fa-solid fa-arrow-right" style="font-size:.62rem"></i></button>
+        <button class="nlink" data-read="${n.id}">Ler publicação completa <i class="fa-solid fa-arrow-right" style="font-size:.62rem"></i></button>
       </div>
     </article>`;
   }).join('');
@@ -436,7 +437,7 @@ function openArticle(id){
   document.getElementById('artImg').src=img;
   document.getElementById('artImg').alt=n.titulo;
   document.getElementById('artBody').textContent=n.content||n.resumo;
-  document.getElementById('artTags').innerHTML=`<span class="art-tag">${n.categoria}</span><span class="art-tag">Construção</span><span class="art-tag">Eufratungos, Lda</span>`;
+  document.getElementById('artTags').innerHTML=`<span class="art-tag">${n.categoria}</span><span class="art-tag">Água Purificada</span><span class="art-tag">LUMAD</span>`;
 
   // Prev / Next
   const idx=all.findIndex(x=>String(x.id)===String(id));
